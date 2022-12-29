@@ -15,14 +15,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.12.0
-      - name: Set up secret
-        run: |
-          mkdir secrets
-          mkdir cron/logs
-          touch cron/logs/log.txt
-          echo "${{ secrets.SHEETS_API_FILE }}" > secrets/creds.json
-          cat secrets/creds.json
       - name: Setup deps
         run: yarn
+      - name: Setup creds
+        with:
+          name: "creds.json"
+          json: ${{ secrets.SHEETS_API_FILE }}
+          dir: 'secrets/'
       - name: Run thing
         run: bash cron/run.sh
