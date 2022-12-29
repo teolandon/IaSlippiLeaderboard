@@ -33,8 +33,6 @@ jobs:
           name: players-new.json
           path: cron/data/
           if_no_artifact_found: ignore
-      - name: Faje
-        run: touch cron/data/players-new.json
       - name: Get old timestamp
         uses: dawidd6/action-download-artifact@v2
         with:
