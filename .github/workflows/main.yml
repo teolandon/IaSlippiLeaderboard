@@ -2,7 +2,7 @@ name: Run bot
 
 on:
   schedule:
-    - cron: "0 0 0 0 0"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -15,5 +15,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.12.0
+      - name: Set up secret
+        run: |
+          mkdir secrets
+          echo "${{ secrets.GOOGLE }}" > secrets/creds.json
       - name: Run thing
-        run: npm ci
+        run: bash cron/run.sh
