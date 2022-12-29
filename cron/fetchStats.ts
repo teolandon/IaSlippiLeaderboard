@@ -52,19 +52,6 @@ async function main() {
   console.log('Wrote new data file and timestamp.');
   console.log('Deploying.');
   const rootDir = path.normalize(path.join(__dirname, '..'))
-  console.log(rootDir)
-  // if no current git changes
-  const { stdout, stderr } = await execPromise(`git -C ${rootDir} status --porcelain`);
-  if(stdout || stderr) {
-    console.log('Pending git changes... aborting deploy');
-    return
-  }
-  const { stdout: stdout2, stderr: stderr2 } = await execPromise(`/Users/teolandon/.nvm/versions/node/v18.12.0/bin/npm run --prefix ${rootDir} deploy`);
-  console.log(stdout2);
-  if(stderr2) {
-    console.error(stderr2);
-  }
-  console.log('Deploy complete.');
 }
 
 main();
