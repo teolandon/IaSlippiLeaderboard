@@ -30,24 +30,26 @@ jobs:
       - name: Get old players-new
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: new-players
-          path: cron/data/players-new.json
+          name: players-new.json
+          path: cron/data/
+          if_no_artifact_found: ignore
       - name: Get old timestamp
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: timestamp
-          path: cron/data/timestamp.json
+          name: timestamp.json
+          path: cron/data/
+          if_no_artifact_found: ignore
       - name: Run thing
         run: bash cron/run.sh
       - name: Upload data
         uses: actions/upload-artifact@master
         with:
-          name: new-players
-          path: cron/data/players-new.json
+          name: players-new.json
+          path: cron/data/
       - name: Upload timestamp
         uses: actions/upload-artifact@master
         with:
-          name: timestamp
-          path: cron/data/timestamp.json
+          name: timestamp.json
+          path: cron/data/
       - name: Deploy
         run: npm run deploy
