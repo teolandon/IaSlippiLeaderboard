@@ -33,10 +33,7 @@ jobs:
           name: data
           path: cron/data/
           if_no_artifact_found: ignore
-      - name: Temp
-        run: |
-          ls cron/data/
-          echo "[]" > cron/data/players-new.json
+
       - name: Run thing
         run: bash cron/run.sh
       - name: Upload data
