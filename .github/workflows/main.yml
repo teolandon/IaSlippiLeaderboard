@@ -25,5 +25,17 @@ jobs:
           name: "creds.json"
           json: ${{ secrets.SHEETS_API_FILE }}
           dir: 'secrets/'
+      - name: Get old players-new
+        uses: actions/download-artifact@master
+        with:
+          name: new-players
+          path: cron/data/players-new.json
       - name: Run thing
         run: bash cron/run.sh
+      - name: Upload data
+        uses: actions/upload-artifact@master
+        with:
+          name: new-players
+          path: cron/data/players-new.json
+      - name: Deploy
+        run: npm run deploy
