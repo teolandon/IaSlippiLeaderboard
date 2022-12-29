@@ -17,6 +17,8 @@ jobs:
           node-version: 18.12.0
       - name: Setup deps
         run: yarn
+      - name: Setup creds path
+        run: mkdir secrets
       - name: Setup creds
         uses: jsdaniell/create-json@1.1.2
         with:
