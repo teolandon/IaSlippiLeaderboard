@@ -21,6 +21,7 @@ jobs:
           mkdir cron/logs
           touch cron/logs/log.txt
           echo "${{ secrets.SHEETS_API_FILE }}" > secrets/creds.json
+          cat secrets/creds.json
       - name: Setup deps
         run: yarn
       - name: Run thing
