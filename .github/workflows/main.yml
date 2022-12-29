@@ -44,5 +44,9 @@ jobs:
         with:
           name: data
           path: cron/data/
+      - name: Build
+        run: npm run build
       - name: Deploy
-        run: npm run deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
