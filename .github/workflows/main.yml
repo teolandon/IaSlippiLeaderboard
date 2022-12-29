@@ -18,6 +18,7 @@ jobs:
       - name: Set up secret
         run: |
           mkdir secrets
+          mkdir cron/logs
           echo "${{ secrets.GOOGLE }}" > secrets/creds.json
       - name: Run thing
         run: bash cron/run.sh
