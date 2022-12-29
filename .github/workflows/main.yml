@@ -19,6 +19,7 @@ jobs:
         run: |
           mkdir secrets
           mkdir cron/logs
+          touch cron/logs/log.txt
           echo "${{ secrets.GOOGLE }}" > secrets/creds.json
       - name: Run thing
         run: bash cron/run.sh
