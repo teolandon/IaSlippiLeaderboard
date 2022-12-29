@@ -27,29 +27,22 @@ jobs:
           name: "creds.json"
           json: ${{ secrets.SHEETS_API_FILE }}
           dir: 'secrets/'
-      - name: Get old players-new
+      - name: Get old data
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: players-new.json
+          name: data
           path: cron/data/
           if_no_artifact_found: ignore
-      - name: Get old timestamp
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: timestamp.json
-          path: cron/data/
-          if_no_artifact_found: ignore
+      - name: Temp
+        run: |
+          ls cron/data/
+          touch cron/data/players-new.json
       - name: Run thing
         run: bash cron/run.sh
       - name: Upload data
         uses: actions/upload-artifact@master
         with:
-          name: players-new.json
-          path: cron/data/
-      - name: Upload timestamp
-        uses: actions/upload-artifact@master
-        with:
-          name: timestamp.json
+          name: data
           path: cron/data/
       - name: Deploy
         run: npm run deploy
