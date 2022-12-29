@@ -18,6 +18,7 @@ jobs:
       - name: Setup deps
         run: yarn
       - name: Setup creds
+        uses: jsdaniell/create-json@1.1.2
         with:
           name: "creds.json"
           json: ${{ secrets.SHEETS_API_FILE }}
