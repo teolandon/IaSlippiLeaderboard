@@ -47,3 +47,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
+      - name: Shhhhh
+        uses: gautamkrishnar/keepalive-workflow@v1
