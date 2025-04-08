@@ -1,5 +1,5 @@
 module.exports = {
-  // Base application title used in document.title
+  // Bse application title used in document.title
   title: 'Colorado Ranked Slippi Leaderboard',
 
   // use cname option to add CNAME file to webpack build
@@ -13,5 +13,5 @@ module.exports = {
 
   // Google sheets ID for player connect codes.
   // https://docs.google.com/spreadsheets/d/[YOUR ID]
-  spreadsheetID: '1DPIFD0RUA3yjruregmFUbUJ7ccdOjVB2LBp0goHvL-A',
+  spreadsheetID: '1ww0ntz0aN8JWNEfIdzF6iZKEIT2TQprasV9pPc6r8Us',
 };
