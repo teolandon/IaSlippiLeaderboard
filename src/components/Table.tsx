@@ -25,7 +25,7 @@ export function Table({ players }: Props) {
           </tr>
         </thead>
         {players.length > 0 &&
-          <tbody className="bg-white bg-opacity-70"> {/* Add semi-transparent background */}
+          <tbody className="bg-gray bg-opacity-90"> {/* Add semi-transparent background */}
             {players.map((p: Player, index: number) => <Row key={p.displayName} player={p} />)}
           </tbody>
         }
