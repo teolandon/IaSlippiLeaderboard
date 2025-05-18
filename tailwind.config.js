@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('https://github.com/teolandon/IaSlippiLeaderboard/blob/2ded879a441c9572ec04df14f9e25e7075fcaf0f/diggles137.PNG')",
+        'hero-pattern': "url('https://raw.githubusercontent.com/teolandon/IaSlippiLeaderboard/2ded879a441c9572ec04df14f9e25e7075fcaf0f/diggles137.PNG')",
       },
     },
   },
