@@ -45,7 +45,6 @@ export const getPlayerData = async (connectCode: string) => {
   const req = await fetch('https://internal.slippi.gg/graphql', {
     headers: {
       'content-type': 'application/json',
-      'origin': 'https://slippi.gg',
     },
     body: JSON.stringify({
       operationName: 'UserProfilePageQuery',
