@@ -22,3 +22,9 @@ export interface Player {
   rankedNetplayProfile: RankedNetplayProfile
   oldRankedNetplayProfile?: RankedNetplayProfile // populated separately
 }
+
+export interface Leaderboard {
+  name: string;
+  code: string;
+  url: string;
+}

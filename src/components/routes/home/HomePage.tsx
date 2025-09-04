@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from '../../Table';
 import { Player } from '../../../lib/player'
+import { OtherLeaderboards } from '../../OtherLeaderboards';
 import playersOld from '../../../../cron/data/players-old.json';
 import playersNew from '../../../../cron/data/players-new.json';
 import timestamp from '../../../../cron/data/timestamp.json';
@@ -15,6 +16,25 @@ const setCount = (player: Player) => {
   return player.rankedNetplayProfile.wins +
     player.rankedNetplayProfile.losses;
 }
+
+const otherLeaderboards = [
+    { code: "Us_az", name: "Arizona", url: "https://joemama0s.github.io/AZSlippiLeaderboard/#/" },
+    { code: "Us_ar", name: "Arkansas", url: "https://smaneil.github.io/ArSlippiLeaderboard/#/" },
+    { code: "Ca_bc", name: "British Columbia", url: "https://slippi.saika.ca/" },
+    { code: "Us_co", name: "Colorado", url: "https://grantismo.github.io/CoSlippiLeaderboard/#/" },
+    { code: "Us_in", name: "Indiana", url: "https://freemanb2.github.io/InSlippiLeaderboard/#/" },
+    { code: "Us_ne", name: "New England", url: "https://benjaminsg.github.io/NESlippiLeaderboard/#/" },
+    { code: "Us_mo", name: "Missouri", url: "https://timtempor.github.io/MOSlippiLeaderboard/#/" },
+    { code: "Us_norcal", name: "Norcal", url: "https://costasford.github.io/NorcalSlippiLeaderboard/#/" },
+    { code: "Us_nm", name: "New Mexico", url: "https://izzythecubemaster.github.io/NMSlippiLeaderboard/#/" },
+    { code: "Ca_qc", name: "Quebec", url: "https://tokage2000.github.io/QCSlippiLeaderboard/#/" },
+    { code: "Uk_ab", name: "Scotland", url: "https://melee-leaderboards.github.io/Scotland/" },
+    { code: "Us_sd", name: "Siouxland", url: "https://melangestillraces.github.io/SiouxlandSlippiLeaderboard/#/" },
+    { code: "South_america", name: "South America", url: "https://caioicy.github.io/slippi-leaderboard-sa/#/" },
+    { code: "Us_tx", name: "Texas", url: "https://timothysdavis00.github.io/TXSlippiLeaderboard/#/" },
+    { code: "Uk", name: "United Kingdom", url: "https://spirrit.github.io/UKSlippiLeaderboard/#/" },
+    { code: "Us_wa", name: "Washington", url: "https://slippi.poyo.dev/" },
+];
 
 const sortAndPopulatePlayers = (players: Player[]) => {
   players = players.filter((p)=> setCount(p))
@@ -55,6 +75,12 @@ export default function HomePage() {
   if (window.innerWidth > 600) {
     return (
       <div className="flex flex-col items-center h-screen p-8">
+        <div className="navigation">
+          <p>Other leaderboards</p>
+          <ul>
+            <OtherLeaderboards leaderboards={otherLeaderboards}/>
+          </ul>
+        </div>
         <h1 className="text-4xl text-center text-white pt-3">
           <img src={Diggles} className="logo"/><b>{settings.title}</b>
         </h1>
@@ -74,6 +100,12 @@ export default function HomePage() {
   } else {
     return (
       <div className="flex flex-col items-center h-screen p-2">
+        <div className="navigation">
+          <p>Other leaderboards</p>
+          <ul>
+            <OtherLeaderboards leaderboards={otherLeaderboards}/>
+          </ul>
+        </div>
         <h1 className="text-3xl text-center text-white pt-12 px-5">
           <img src={Diggles} className="logo-sm"/><b>{settings.title}</b>
         </h1>

@@ -1,18 +1,122 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Maven+Pro:400,500,700,800|Rubik:300,400,500,700");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+.flag {
+    display: inline-block;
+    vertical-align: middle;
+    height: 0.7em;
+    border-radius: 3px;
+    margin: 0 0.3em 0.13em;
+}
+
 .logo {
-  height: 137px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.3em 0 -5%;
+    max-width: 10%;
+    height: auto;
 }
 
 .logo-sm {
-  height: 100px;
-  display: inline;
-  vertical-align: middle;
-  margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.3em 0 -5%;
+    max-width: 20%;
+    height: auto;
 }
 
+ .navigation {
+     background-color: #313c4e;
+     position: absolute;
+     top: 2px;
+     left: 16px;
+     margin-bottom: 15px;
+     border-radius: 15px;
+     max-height: calc(100vh - 32px);
+     overflow: auto;
+     color: #ffffff;
+     z-index: 10;
+ }
+
+.navigation .flag {
+    height: 1em;
+}
+.navigation p {
+    font-weight: 500;
+}
+.navigation ul {
+    list-style: none;
+    display: none;
+}
+.navigation:hover ul {
+    display: unset;
+}
+.navigation > ul, .navigation > p {
+    margin: 0;
+    padding: 0;
+}
+.navigation li {
+    border-top: 1px solid #2d3748;
+}
+.navigation li:hover {
+    background-color: #2d3748;
+    color: #ffffff;
+}
+.navigation li, .navigation p {
+    padding: 12px 24px;
+}
+
+::-webkit-scrollbar {
+    width: 22px;
+    height: 22px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 5px solid transparent;
+    background-clip: padding-box;
+    border-radius: 9999px;
+    background-color: #2d3748;
+}
+
+.no-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-bar::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.no-select {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+th {
+    font-weight: 500;
+    text-align: center;
+}
+
+.no-border {
+    border: none;
+    collapse: collapse;
+}
+
+.bottom-border {
+    border-bottom: 1px solid grey;
+}
+
+
+.fill-parent {
+    width: 100%;
+}
+
+.text-left {
+    text-align: left;
+}
