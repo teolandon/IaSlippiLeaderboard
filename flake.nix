@@ -15,6 +15,7 @@
           buildInputs = with pkgs; [
             nodejs
             nodePackages.npm
+            yarn
           ];
         };
       });
