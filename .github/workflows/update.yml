@@ -14,7 +14,7 @@ jobs:
       with:
         node-version: '21.6.1'
     - name: Install project dependencies
-      run: yarn install
+      run: npm install --legacy-peer-deps
       shell: bash
     - name: Load secrets
       run: |
