@@ -1,6 +1,6 @@
-# Colorado Ranked Slippi Leaderboard
+# Iowa Ranked Slippi Leaderboard
 
-Code powering https://grantismo.github.io/CoSlippiLeaderboard/#/
+Code powering https://teolandon.github.io/IaSlippiLeaderboard/#/
 
 ## Technologies
 
