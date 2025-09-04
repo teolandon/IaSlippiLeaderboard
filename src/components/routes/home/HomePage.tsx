@@ -7,6 +7,7 @@ import timestamp from '../../../../cron/data/timestamp.json';
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime' // import plugin
 import * as settings from '../../../../settings'
+import Diggles from '../../../../diggles137.png';
 dayjs.extend(relativeTime)
 
 
@@ -31,7 +32,7 @@ export default function HomePage() {
   const rankedPlayersOld = sortAndPopulatePlayers(playersOld)
   const oldPlayersMap = new Map(
     rankedPlayersOld.map((p) => [p.connectCode.code, p]));
-  
+
   const players = sortAndPopulatePlayers(playersNew);
   players.forEach((p) => {
     const oldData = oldPlayersMap.get(p.connectCode.code)
@@ -51,22 +52,44 @@ export default function HomePage() {
     };
   }, []);
 
-  return (
-    <div className="flex flex-col items-center h-screen p-8">
-      <h1 className="text-3xl m-4 text-center text-white">
-        {settings.title}
-      </h1>
-      <div className="p-1 text-gray-300"> Updated {updateDesc}</div>
-      <Table players={players} />
-      <div className="p-4 text-gray-300 flex flex-col">
-        <div>Built by blorppppp</div>
-        <div>
-          <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
-             className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
-            Buy me a coffee
-          </a>☕
+  if (window.innerWidth > 600) {
+    return (
+      <div className="flex flex-col items-center h-screen p-8">
+        <h1 className="text-4xl text-center text-white pt-3">
+          <img src={Diggles} className="logo"/><b>{settings.title}</b>
+        </h1>
+        <div className="pb-1 text-gray-300"> Updated {updateDesc}</div>
+        <Table players={players} />
+        <div className="p-4 text-gray-300 flex flex-col">
+          <div>Built by blorppppp</div>
+          <div>
+            <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
+               className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
+              Buy me a coffee
+            </a>☕
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="flex flex-col items-center h-screen p-2">
+        <h1 className="text-3xl text-center text-white pt-12 px-5">
+          <img src={Diggles} className="logo-sm"/><b>{settings.title}</b>
+        </h1>
+        <div className="pb-1 text-gray-300"> Updated {updateDesc}</div>
+        <Table players={players} />
+        <div className="p-4 text-gray-300 flex flex-col text-xs">
+          <div>Built by blorppppp</div>
+          <div>
+            <a href="https://www.buymeacoffee.com/blorppppp" target="_blank" rel="noreferrer"
+               className="text-gray-400 hover:text-indigo-700 mr-2 hover:underline">
+              Buy me a coffee
+            </a>☕
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
+

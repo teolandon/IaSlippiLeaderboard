@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.logo {
+  height: 137px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.logo-sm {
+  height: 100px;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
